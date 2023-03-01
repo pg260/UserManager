@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QW7mexH6a6KeznLJykzk1vb/JZA7YsGagGMrFnlw9I4O+ZoPBTzwPIMpU6tm5Dq6SJoj3jLpVBcDMMjztPDIkw==",
+  "success": true,
+  "projectFilePath": "/home/pg/Manager/src/Manager.Domain/Manager.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/pg/.nuget/packages/fluentvalidation/11.5.1/fluentvalidation.11.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}
