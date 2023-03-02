@@ -1,3 +1,4 @@
+using Manager.Core.Exceptions;
 using Manager.Domain.Validators;
 
 namespace Manager.Domain.Entities;
@@ -13,6 +14,8 @@ public class User : Base
           Email = email;
           Password = password;
           _errors = new List<string>();
+
+          Validate();
      }
 
      
@@ -53,7 +56,7 @@ public class User : Base
                foreach (var error in validation.Errors)
                     _errors.Add(error.ErrorMessage);
 
-               throw new Exception("Campo inválido, corrija-os." + _errors[0]);
+               throw new DomainExceptions("Campo inválido, corrija-os.", _errors);
           }
 
           return true;

@@ -14,6 +14,16 @@
             "related": ".xml"
           }
         }
+      },
+      "Manager.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Manager.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Manager.Core.dll": {}
+        }
       }
     }
   },
@@ -40,10 +50,16 @@
         "lib/netstandard2.1/FluentValidation.dll",
         "lib/netstandard2.1/FluentValidation.xml"
       ]
+    },
+    "Manager.Core/1.0.0": {
+      "type": "project",
+      "path": "../Manager.Core/Manager.Core.csproj",
+      "msbuildProject": "../Manager.Core/Manager.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Manager.Core >= 1.0.0",
       "fluentvalidation >= 11.5.1"
     ]
   },
@@ -53,11 +69,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/pg/Manager/src/Manager.Domain/Manager.Domain.csproj",
+      "projectUniqueName": "/home/pg/UserManager/Manager/src/Manager.Domain/Manager.Domain.csproj",
       "projectName": "Manager.Domain",
-      "projectPath": "/home/pg/Manager/src/Manager.Domain/Manager.Domain.csproj",
+      "projectPath": "/home/pg/UserManager/Manager/src/Manager.Domain/Manager.Domain.csproj",
       "packagesPath": "/home/pg/.nuget/packages/",
-      "outputPath": "/home/pg/Manager/src/Manager.Domain/obj/",
+      "outputPath": "/home/pg/UserManager/Manager/src/Manager.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/pg/.nuget/NuGet/NuGet.Config"
@@ -71,7 +87,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/pg/UserManager/Manager/src/Manager.Core/Manager.Core.csproj": {
+              "projectPath": "/home/pg/UserManager/Manager/src/Manager.Core/Manager.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e55csXgowekQi1hl7NWm4dobdvI9JYkwI/5GBtdE6HAes9ECKecOVUhi2FKM8hl7R587wbeHOf1ztBGdHdTGmQ==",
+  "dgSpecHash": "QRaWLTwKvxu19fZzeONv6E8TCLOLjO8DgmdhNR65B1Ca9oWyHBhGiuZfaMkRxHMnTB7P5d2B3wjoNuFwzfoDuA==",
   "success": true,
-  "projectFilePath": "/home/pg/Manager/src/Manager.Core/Manager.Core.csproj",
+  "projectFilePath": "/home/pg/UserManager/Manager/src/Manager.Core/Manager.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

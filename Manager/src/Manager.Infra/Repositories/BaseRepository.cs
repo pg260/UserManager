@@ -1,5 +1,4 @@
 using Manager.Domain.Entities;
-using Manager.Infra.Context;
 using Manager.Infra.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

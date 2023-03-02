@@ -1,6 +1,6 @@
 using Manager.Domain.Entities;
-using Manager.Infra.Context;
 using Manager.Infra.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Manager.Infra.Repositories;
 
@@ -16,7 +16,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
      public async Task<User> GetByEmail(string email)
      {
           var user = await _context.Users
-               .where
+               .Where
                (
                     x =>
                          x.Email.ToLower() == email.ToLower()
@@ -30,7 +30,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
      public async Task<List<User>> SearchByEmail(string email)
      {
           var allUsers = await _context.Users
-               .where
+               .Where
                (x =>
                     x.Email.ToLower().Contains(email.ToLower())
                )
@@ -43,7 +43,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
      public async Task<List<User>> SearchByName(string name)
      {
           var allUsers = await _context.Users
-               .where
+               .Where
                (
                     x =>
                          x.Name.ToLower().Contains(name.ToLower())
