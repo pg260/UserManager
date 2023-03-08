@@ -11,6 +11,7 @@
           "Manager.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.EntityFrameworkCore.Design": "7.0.3",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.3",
           "MySql.Data.EntityFrameworkCore": "8.0.22",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
@@ -1298,6 +1299,9 @@
         }
       },
       "Manager.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3"
+        },
         "runtime": {
           "Manager.Core.dll": {}
         }
@@ -1305,6 +1309,7 @@
       "Manager.Domain/1.0.0": {
         "dependencies": {
           "Manager.Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3",
           "FluentValidation": "11.5.1"
         },
         "runtime": {

@@ -168,10 +168,10 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.2",
+          "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
@@ -2015,6 +2015,9 @@
       "Manager.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3"
+        },
         "compile": {
           "bin/placeholder/Manager.Core.dll": {}
         },
@@ -2027,6 +2030,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Manager.Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3",
           "fluentvalidation": "11.5.1"
         },
         "compile": {
@@ -2042,6 +2046,7 @@
         "dependencies": {
           "Manager.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3",
           "MySql.Data.EntityFrameworkCore": "8.0.22",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0"
         },
@@ -2309,17 +2314,17 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
-      "sha512": "TbTGOdaGtjps3GP7rLWXEXzmP+EXhV8AwPE/ov0QYhs5i5vKZX5ZpVLMnco2MeMtiPgLyxE7DhQT8s1wlu190g==",
+    "Microsoft.EntityFrameworkCore.Relational/7.0.3": {
+      "sha512": "RxNNjtTrxsMtdBtgoXGRSy8uCXaBHaVzIonTeo7+Ys+N0yEWwhf2E74cxneyunMi13Ezlld10ecCHlDubEU/Pw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/7.0.2",
+      "path": "microsoft.entityframeworkcore.relational/7.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.7.0.3.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
@@ -6521,6 +6526,7 @@
       "Manager.Core >= 1.0.0",
       "Manager.Domain >= 1.0.0",
       "Manager.Infra >= 1.0.0",
+      "Microsoft.EntityFrameworkCore.Relational >= 7.0.3",
       "automapper >= 12.0.1"
     ]
   },
@@ -6571,6 +6577,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": {
+            "target": "Package",
+            "version": "[7.0.3, )"
+          },
           "automapper": {
             "target": "Package",
             "version": "[12.0.1, )"

@@ -19,8 +19,8 @@ public class UserController : ControllerBase
 
     private readonly IUserService _userService;
     private readonly IMapper _mapper;
-    
-    
+
+
     [HttpPost]
     [Route("/api/v1/users/create")]
     public async Task<IActionResult> Create([FromBody] CreateUserViewModel userViewModel)
@@ -29,7 +29,7 @@ public class UserController : ControllerBase
         {
             var userDto = _mapper.Map<UserDto>(userViewModel);
             var userCreated = await _userService.Create(userDto);
-            
+
             return Ok(new ResultViewModel
             {
                 Message = "Usuário criado com sucesso",
@@ -43,7 +43,8 @@ public class UserController : ControllerBase
         }
         catch (Exception)
         {
-            return StatusCode(500, Responses.ApplicationErrorMessage());
+            return StatusCode(500, "Erro");
         }
+
     }
 }

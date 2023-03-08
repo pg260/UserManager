@@ -2182,6 +2182,9 @@
       "Manager.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3"
+        },
         "compile": {
           "bin/placeholder/Manager.Core.dll": {}
         },
@@ -2194,6 +2197,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Manager.Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3",
           "fluentvalidation": "11.5.1"
         },
         "compile": {
@@ -6935,6 +6939,7 @@
       "Manager.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.3",
+      "Microsoft.EntityFrameworkCore.Relational >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3",
       "MySql.Data.EntityFrameworkCore >= 8.0.22",
       "Pomelo.EntityFrameworkCore.MySql >= 7.0.0"
@@ -6988,6 +6993,10 @@
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[7.0.3, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[7.0.3, )"
           },
