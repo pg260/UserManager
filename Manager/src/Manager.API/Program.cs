@@ -1,5 +1,7 @@
 global using Microsoft.EntityFrameworkCore;
+using System.Text;
 using AutoMapper;
+using Manager.API.Token;
 using Manager.API.ViewModels;
 using Manager.Domain.Entities;
 using Manager.Infra;
@@ -8,6 +10,8 @@ using Manager.Infra.Repositories;
 using Manager.Services.DTO;
 using Manager.Services.Interfaces;
 using Manager.Services.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,26 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+var secretKey = builder.Configuration["Jwt:Key"];
+
+builder.Services.AddAuthentication(x =>
+    {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(x =>
+    {
+        x.RequireHttpsMetadata = false;
+        x.SaveToken = true;
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+
 AutoMapperDependenceInjection();
 
 void AutoMapperDependenceInjection()
@@ -26,6 +50,7 @@ void AutoMapperDependenceInjection()
     {
         cfg.CreateMap<User, UserDto>().ReverseMap();
         cfg.CreateMap<CreateUserViewModel, UserDto>().ReverseMap();
+        cfg.CreateMap<UpdateUserViewModel, UserDto>().ReverseMap();
     });
     
     builder.Services.AddSingleton(autoMapperConfig.CreateMapper());
@@ -43,6 +68,7 @@ builder.Services.AddMvc();
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 
 builder.Services.AddSwaggerGen();
 
@@ -56,6 +82,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
